@@ -5,7 +5,7 @@
  }
  .divLogin{
      /* background-color: #282c34; */
-     width: 50%;
+     width: 40%;
  }
  .title{
      display: flex;
@@ -15,22 +15,24 @@
      text-shadow: 1px 1px 0 #2ecc71 , -1px -1px 0 #2ecc71 , 1px -1px 0 #2ecc71 , -1px 1px 0 #2ecc71 ;
  }
  a {
-	transition: all 3000ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+ 
 	display: block;	 
 	max-width: 220px;
 	text-decoration: none;
 	border-radius: 4px;
 	padding: 20px 50px;	 
 }
-a.button {
-font-family: 'Times New Roman', Times, serif;
-font-size: 4vh;
-	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
-}
-a.button:hover {
  
-    box-shadow: rgba(124, 90, 228, 0.7) 0 0px 0px 40px inset;
-    
+a.button {
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+    transition:2s;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 .btns{
     display: flex;

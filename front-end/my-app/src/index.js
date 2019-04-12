@@ -9,15 +9,15 @@ import ReduxThunk from 'redux-thunk';
 import loginReducer from './store/reducers/Login.reducer'
 import modalOpen from './store/reducers/Modal.reducer'
 import { applyMiddleware } from 'redux';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import 'bootstrap-css-only/css/bootstrap.min.css';
-// import 'mdbreact/dist/css/mdb.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 
 
 const middleWare = applyMiddleware(ReduxThunk)
 
 const rootReducer = combineReducers({
-  // login:loginReducer,
+  login:loginReducer,
   modal:modalOpen
 })
 

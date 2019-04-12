@@ -15,6 +15,7 @@ function openModal(state=initialState,action){
         return{
            show:answer
         }
+      
     }
     return state;  
 }

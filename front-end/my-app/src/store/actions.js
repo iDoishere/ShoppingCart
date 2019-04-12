@@ -1,24 +1,35 @@
-export const LOGIN = "LOGIN";
+ 
+ export const LOGIN = "LOGIN";
 export const MODAL = "MODAL";
+export const REGISTER = "REGISTER";
 
-   
-export   const modal = () => {
+   export const register = (obj) => {
+  	return  function (dispatch) {
+      return   fetch(`http://localhost:3000/users`, {
+             method: 'POST', 
+             body: JSON.stringify(obj),  
+             headers:{
+               'Content-Type': 'application/json'
+             }
+           }).then(res => res.json())
+           .then(response =>  console.log(response.auth)  )
+           .catch(error => console.error('Error:', error));
+  
+     }
+   }
+   export const modal = () => {
     return {type:MODAL}
 }
 
- export const loginAuth =  (obj) => {
-    
+  export const loginAuth =  (obj) => {   
 	return  function (dispatch) {
-
-     return   fetch(`http://localhost:3000/users`, {
-            method: 'POST', 
-            body: JSON.stringify(obj),  
-            headers:{
-              'Content-Type': 'application/json'
-            }
-          }).then(res => res.json())
-          .then(response => dispatch({type:LOGIN,payload:response})  )
-          .catch(error => console.error('Error:', error));
- 
+    const auth = `Basic ${btoa(`${obj.email}:${obj.pass}`)}`;
+    return fetch("http://localhost:3000/users/login", { //check if user in the db
+      headers: new Headers({
+        Authorization: auth
+      })
+    }).then(res => res.json())
+      .then(res => dispatch({type:LOGIN,payload:res.auth}))     
+      .catch(res => console.log(res))
     }
  }

@@ -2,20 +2,25 @@
 import  * as actionsType    from '../actions'
  
 const initialState = {
-    person :''
+    isLoggedIn :false
 }
-
 
 function loginRecuer(state = initialState,action){
      switch(action.type){
+         
          case actionsType.LOGIN:
-         console.log('123456')
+      
+console.log('55555555555a')
+          let a = state.isLoggedIn;
+        
+          a=!a;
         return{
-            person :''
+            isLoggedIn :a
         }
+      
      }
     
-   
+     return state; 
   
 }
 

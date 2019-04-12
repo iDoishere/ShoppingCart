@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../database.json')
 const dbService = require('../dbService')
- 
+const basicAuth = require('express-basic-auth');
 
 router.use(async(req,res,next)=> {
   myService = new dbService();
@@ -10,16 +9,21 @@ router.use(async(req,res,next)=> {
   next()
 })
 
+async function  authorizer (email, password) {
+  
+  const currentUsers =  await myService.getAll('users')
+  return currentUsers.some(user =>(user.email === email && user.pass === md5(password)  ) ) 
+}
 
-router.post('/',async function (req, res, next) {
-  //  const auth= db.users.some(user =>(user.email === req.body.email && user.pass === req.body.pass)) 
-  // if(auth){
-  //   console.log("correct")
-  //   res.status(200).send({"auth":true})
-  // }
-  console.log(req.body)
-  const result = await myService.insertOne(req.body, 'users')
+router.get('/login',basicAuth({ authorizer}) ,async function (req, res, next) {
+   console.log('a1')
+  res.status(200).send({"auth":true})
+ 
 
 });
 
 module.exports = router;
+
+  // const result = await myService.insertOne(req.body, 'users')
+// if(originalList.some(todo => action.todo == todo.value ))    
+// return state.results;

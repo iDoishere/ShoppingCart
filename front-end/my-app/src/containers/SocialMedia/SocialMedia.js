@@ -4,7 +4,7 @@ import './SocialMedia.css'
 import { connect } from 'react-redux'
 import  * as actionsType    from '../../store/actions'
  import Icons from '../../components/Icons/Icons'
-
+ import Modal from '../../components/Modal/Modal'
  class SocialMedia extends Component {
 
   render() {
@@ -13,7 +13,8 @@ const {
   clickedLogin,
   clickedOpenModal,
   open,
-  clickedCloseModal
+  clickedCloseModal,
+  clickedRegister
 }=this.props;
 
 
@@ -22,10 +23,10 @@ const {
       <Icons/>
       <Login 
        loginClicked={clickedLogin}
-        openModal={clickedOpenModal}     
-        open={open}  
-        closeModal={clickedCloseModal}
+         openModal={clickedOpenModal}     
+        
       /> 
+      <Modal      open={open}  closeModal={clickedCloseModal} register={clickedRegister}  />
       </div>
     )
   }
@@ -42,7 +43,8 @@ const mapDispatchToProps = dispatch => {
   return {
         clickedLogin:(obj) => dispatch(actionsType.loginAuth(obj)),
         clickedOpenModal:() =>dispatch(actionsType.modal()),
-        clickedCloseModal:() =>dispatch(actionsType.modal())
+        clickedCloseModal:() =>dispatch(actionsType.modal()),
+        clickedRegister:(obj) =>dispatch(actionsType.register(obj))
   }
 };
  

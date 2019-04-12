@@ -1,28 +1,33 @@
 
   import React, { Component } from 'react'
- import { Button,Modal } from 'react-bootstrap';
-
+ import { Button,Modal,Form } from 'react-bootstrap';
+import Register from '../Register/Register'
 class MyModal extends React.Component {
   
     render() {
                 const {
             closeModal,
-            open
+            open,
+            register
         } = this.props;
       return (
         <div>     
-            <Modal show={open} onClick = {()=> { closeModal()}}>
-          <Modal.Header  >
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal show={open} onHide={closeModal}>
+          <Modal.Header>
+            <Modal.Title>Register For Free</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>
+
+      <Register clickedRegister={register}/>
+
+          </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary"   >
+            <Button variant="secondary"  onClick = {()=> { closeModal()}} >
               Close
             </Button>
-            <Button variant="primary"  >
-              Save Changes
-            </Button>
+            {/* <Button variant="primary"  >
+           Register
+            </Button> */}
           </Modal.Footer>
         </Modal>
                </div>
