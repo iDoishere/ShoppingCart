@@ -13,8 +13,7 @@ export const REGISTER = "REGISTER";
              }
            }).then(res => res.json())
            .then(response =>  console.log(response.auth)  )
-           .catch(error => console.error('Error:', error));
-  
+           .catch(error => console.error('Error:', error)); 
      }
    }
    export const modal = () => {
@@ -23,13 +22,18 @@ export const REGISTER = "REGISTER";
 
   export const loginAuth =  (obj) => {   
 	return  function (dispatch) {
-    const auth = `Basic ${btoa(`${obj.email}:${obj.pass}`)}`;
-    return fetch("http://localhost:3000/users/login", { //check if user in the db
+    const auth = `Basic ${ btoa(`${obj.email}:${obj.pass}`)}`;
+ 
+      fetch("http://localhost:3000/users/login", { //check if user in the db
       headers: new Headers({
         Authorization: auth
       })
     }).then(res => res.json())
-      .then(res => dispatch({type:LOGIN,payload:res.auth}))     
-      .catch(res => console.log(res))
+      .then(res =>  {if(res.auth){
+        dispatch({type:LOGIN,payload:res.auth})
+      }else{
+        console.log('11111')
+      }}    )   
+      .catch(res => alert('worng detalis')  )
     }
  }

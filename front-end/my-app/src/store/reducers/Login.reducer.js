@@ -6,16 +6,13 @@ const initialState = {
 }
 
 function loginRecuer(state = initialState,action){
-     switch(action.type){
-         
-         case actionsType.LOGIN:
+     switch(action.type){     
+         case actionsType.LOGIN: 
       
-console.log('55555555555a')
-          let a = state.isLoggedIn;
-        
-          a=!a;
+      const result= action.payload ? !state.isLoggedIn:state.isLoggedIn
+           
         return{
-            isLoggedIn :a
+            isLoggedIn :result
         }
       
      }

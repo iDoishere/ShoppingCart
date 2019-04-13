@@ -14,13 +14,20 @@ const {
   clickedOpenModal,
   open,
   clickedCloseModal,
-  clickedRegister
+  clickedRegister ,
+  inOrOut
 }=this.props;
 
-
+console.log(inOrOut)
     return (
       <div  >
-      <Icons/>
+       {this.props.inOrOut ? 
+           <div>
+           <Icons/>
+   
+       </div> :null 
+         }
+  
       <Login 
        loginClicked={clickedLogin}
          openModal={clickedOpenModal}     
@@ -32,11 +39,11 @@ const {
   }
 }
 const mapStateToProps = state => { 
-  
+         console.log(state)
     return {
        
-      open:state.modal.show
-   
+      open:state.modal.show,
+      inOrOut:state.login.isLoggedIn
     }
 };
 const mapDispatchToProps = dispatch => {
