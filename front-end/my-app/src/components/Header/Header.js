@@ -1,13 +1,13 @@
 import React from 'react'
 import './Header.css'
-
+import logo from '../../cart.jpg'
  function header() {
   return (
     <div>
-  <header className="App-header">
-  <h3>Buy Me</h3>
-
+  <header>
+  <img  className="cartLogo" width="8%" src={logo}></img>
   </header>
+   
     </div>
   )
 }

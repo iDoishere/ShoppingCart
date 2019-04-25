@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { Form,Button } from 'react-bootstrap';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,MDBIcon,MDBCardHeader } from 'mdbreact';
 import './Login.css'
- 
+ import {Link} from 'react-router-dom'
  class Login extends Component {
     email = React.createRef();
     pass = React.createRef();
@@ -16,7 +16,12 @@ import './Login.css'
      
        }= this.props;
      return (
-       <div className="login">
+       <div  >
+       
+
+      
+ 
+ 
        <div className="divLogin">
     <MDBContainer>
       <MDBRow>
@@ -67,18 +72,12 @@ import './Login.css'
                 >
                   Sign in
                 </MDBBtn>
-{/* <a className="button" variant="primary"  onClick = {()=> {
-      let email = this.refs.email.value;
-      let pass = this.refs.pass.value;
-      const obj = {email :email,pass:pass}
-      loginClicked(obj);
-  }}>
-    Login In
-  </a> */}
-
-  <a className="button" variant="primary"  onClick = {()=> {
-       openModal()
-  }}>
+ 
+  
+  <a className="button" variant="primary"onClick = {()=> {
+    openModal()
+  }} >  
+ 
     Register
   </a>
 </div>  

@@ -1,11 +1,16 @@
- 
+import {route} from './route'
+
+
  export const LOGIN = "LOGIN";
 export const MODAL = "MODAL";
 export const REGISTER = "REGISTER";
 
+
+
+
    export const register = (obj) => {
   	return  function (dispatch) {
-      return   fetch(`http://localhost:3000/users`, {
+      return   fetch(route('/users') , {
              method: 'POST', 
              body: JSON.stringify(obj),  
              headers:{
@@ -24,16 +29,13 @@ export const REGISTER = "REGISTER";
 	return  function (dispatch) {
     const auth = `Basic ${ btoa(`${obj.email}:${obj.pass}`)}`;
  
-      fetch("http://localhost:3000/users/login", { //check if user in the db
+      fetch(route("/users/login"), { //check if user in the db
       headers: new Headers({
         Authorization: auth
       })
     }).then(res => res.json())
       .then(res =>  {if(res.auth){
-        dispatch({type:LOGIN,payload:res.auth})
-      }else{
-        console.log('11111')
-      }}    )   
+        dispatch({type:LOGIN,payload:res.auth})}})      
       .catch(res => alert('worng detalis')  )
     }
  }

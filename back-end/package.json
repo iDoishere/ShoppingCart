@@ -12,6 +12,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-basic-auth": "^1.1.6",
+    "file-system": "^2.2.2",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "md5": "^2.2.1",

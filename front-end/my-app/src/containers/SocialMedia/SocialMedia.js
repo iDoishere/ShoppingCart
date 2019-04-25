@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import  * as actionsType    from '../../store/actions'
  import Icons from '../../components/Icons/Icons'
  import Modal from '../../components/Modal/Modal'
+ import { BrowserRouter as Router, Route, Link,Redirect,Switch } from "react-router-dom";
+ import Hello from '../../components/Hello/Hello'
+ import MainApp from '../MainApp/MainApp'
  class SocialMedia extends Component {
 
   render() {
@@ -18,23 +21,25 @@ const {
   inOrOut
 }=this.props;
 
-console.log(inOrOut)
+
+console.log( this.props.inOrOut)
     return (
-      <div  >
-       {this.props.inOrOut ? 
-           <div>
-           <Icons/>
-   
-       </div> :null 
-         }
-  
-      <Login 
-       loginClicked={clickedLogin}
-         openModal={clickedOpenModal}     
+      <Router>
+        <Switch>  
         
-      /> 
-      <Modal      open={open}  closeModal={clickedCloseModal} register={clickedRegister}  />
-      </div>
+            <Route path="/MainApp/" render={(props) => <MainApp {...props} />} />
+            <Route render={() => {
+              return (
+                this.props.inOrOut ? (<Redirect to="/MainApp/" />) : (
+                  <div>
+              <Icons/>
+              <Modal   open={open}    register={clickedRegister} closeModal={clickedCloseModal}/>
+              <Login loginClicked={clickedLogin} openModal={clickedOpenModal}/>        
+                  </div>       
+             ))}} />
+
+      </Switch>
+      </Router>
     )
   }
 }

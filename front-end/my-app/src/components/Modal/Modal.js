@@ -5,7 +5,7 @@ import Register from '../Register/Register'
 class MyModal extends React.Component {
   
     render() {
-                const {
+            const {
             closeModal,
             open,
             register

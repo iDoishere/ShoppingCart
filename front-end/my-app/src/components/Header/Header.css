@@ -1,13 +1,15 @@
-
-.App-header {
-    background-color: #282c34;
-    min-height: 5vh;
-    display: flex;
  
-    align-items: center;
-    justify-content: center;
-    /* font-size: calc(10px + 2vmin); */
-    color: white;
+  .cartLogo {
+    position: relative;
+    animation-name: b;
+    animation-duration: 18s;
+    animation-iteration-count: infinite;
   }
-  
-   
+ 
+  /* Standard syntax */
+  @keyframes b {
+    0%   {  left:0px; top:0px;}
+    25%  { left:1200px; top:0px;}
+     100% {  left:0px; top:0px;}
+    100% {  left:0px; top:0px;}
+  }

@@ -8,6 +8,7 @@ import { createStore, combineReducers } from 'redux'
 import ReduxThunk from 'redux-thunk';
 import loginReducer from './store/reducers/Login.reducer'
 import modalOpen from './store/reducers/Modal.reducer'
+import fetchProduct from './store/reducers/Product.reducer'
 import { applyMiddleware } from 'redux';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -18,7 +19,8 @@ const middleWare = applyMiddleware(ReduxThunk)
 
 const rootReducer = combineReducers({
   login:loginReducer,
-  modal:modalOpen
+  modal:modalOpen,
+  fetchProduct:fetchProduct
 })
 
 const store = createStore(rootReducer,middleWare)
