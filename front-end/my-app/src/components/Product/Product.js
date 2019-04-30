@@ -4,31 +4,33 @@ import { Card, CardImg, CardText, CardBody,
 import './Product.css'
 import $ from "jquery";
 
- const Product = ({path,name,price}) => {
-console.log(path)
+ const Product = ({product,pickedCard}) => {
+ 
   return (
     <div>
 
       
    
-<figure class="snip1268">
-  <div class="helper">
-    <img src={path} alt="sq-sample4"/>
-    <div class="icons">
-      <a href="#"><i class="ion-star"></i></a>
-      <a href="#"> <i class="ion-share"></i></a>
-      <a href="#"> <i class="ion-search"></i></a>
+<figure className="snip1268">
+  <div className="helper">
+    <img src={product ? product.photoData :''} alt="sq-sample4"/>
+    <div className="icons">
+      <a href="#"><i className="ion-star"></i></a>
+      <a href="#"> <i className="ion-share"></i></a>
+      <a href="#"> <i className="ion-search"></i></a>
     </div>  
     {/* <a   class="add-to-cart">Add to Cart</a> */}
-    <div class="item button-hand"  >
-    <button className="button">Click Me!
-      <div class="hands"></div>
+    <div className="item button-hand"  >
+    <button className="button" onClick = {(event) => {
+      pickedCard(product)
+    }} >Click Me!
+      <div className="hands"></div>
     </button>
   </div>
   </div>
   <figcaption>
-    <h2>{name}</h2> 
-    <div class="price">$65.00 </div>
+    <h2>{product ? product.name : ' '}</h2> 
+    <div className="price">{product ? product.price : ''} </div>
   </figcaption>
 </figure>
  

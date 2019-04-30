@@ -13,9 +13,7 @@ import { applyMiddleware } from 'redux';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-
-
-const middleWare = applyMiddleware(ReduxThunk)
+import * as  actionLogout  from './store/actions.Logout'
 
 const rootReducer = combineReducers({
   login:loginReducer,
@@ -23,7 +21,26 @@ const rootReducer = combineReducers({
   fetchProduct:fetchProduct
 })
 
-const store = createStore(rootReducer,middleWare)
+
+const storage_saver = store => next => action => {
+  next(action)
+   if(action.type === actionLogout.LOG_OUT){
+ 
+     localStorage.clear()
+   }else{
+    localStorage.setItem("app_data", JSON.stringify(store.getState()) );
+   }
+   
+}
+
+ 
+
+const middleWare = applyMiddleware(ReduxThunk,storage_saver)
+console.log(JSON.parse(localStorage.getItem("app_data")))
+const readLocalStorage = ()=> JSON.parse(localStorage.getItem("app_data")) || {isLoggedIn:false , show :false,  productsResult :[],
+  products:[]}
+
+const store = createStore(rootReducer,readLocalStorage(), middleWare)
 
 
 

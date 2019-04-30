@@ -1,20 +1,51 @@
-import * as Typeaction from '../actionsProduct'
+import * as TypeactionProduct from '../actionsProduct'
+import * as TypeactionLogout from '../actions.Logout'
 
 const initialState = {
-    imagesResult :[]
+   productsResult :[],
+    products:[],
+    ifRmv:false
 }
 
 function productsReducer(state=initialState,action){
-     
+   
     switch(action.type){
-        case Typeaction.FETCH_IMG:
+        case TypeactionProduct.FETCH_IMG:
+      
         return {
-            ...state,
-            imagesResult:state.imagesResult.concat(action.Product)
-
+           
+            productsResult: action.Product,
+            products:state.products,
+            ifRmv:false
         }
-         
-    }
-    return state; 
+        case TypeactionProduct.PICK_PRODUCT:    
+        const a  =[...state.products];
+        a.push(action.product)
+        return {
+            productsResult:state.productsResult,
+            products: a,
+            ifRmv:false
+    
+           
+        }      
+        case TypeactionLogout.LOG_OUT:        
+        return {
+            products: [],
+            productsResult:[],
+            ifRmv:false
+        } 
+       
+        case TypeactionProduct.RMV_PRODUCT:   
+
+        const filterProducts = state.products.filter(product => product.id !== action.data.value.id) ;
+         const ifrmv = !state.ifRmv
+        
+        return {
+          ...state,
+            products:filterProducts,
+            ifRmv:ifrmv       
+        }  
+    }         
+    return state
 }
 export default productsReducer;

@@ -1,4 +1,32 @@
+.example_b {
+  color: #fff !important;
+  text-transform: uppercase;
+  background: #60a3bc;
+  padding: 15px 15px;
+  border-radius: 50px;
+  display: inline-block;
+  border: none;
+  }
+  .example_b:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    transition: all 0.4s ease 0s;
+    }
+    .a1{
+      text-align: center;
+    }
+    .all{
+      display: flex;
+      
+    }
+    .item1{
+      align-items: center
+    }
+    .bb{
+     margin-top: -3vh;
+    }
+    
 /* .parallax {
+
     
     background-image: url("https://images.pexels.com/photos/1391380/pexels-photo-1391380.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
   
@@ -60,4 +88,20 @@ background-size: cover;
   letter-spacing: 10px;
 }
  
- 
+  
+.cartLogo {
+  margin-top: 0.80%;
+  width: 10%;
+  position: relative;
+  animation-name: b;
+  animation-duration: 18s;
+  animation-iteration-count: infinite;
+}
+
+/* Standard syntax */
+@keyframes b {
+  0%   {  left:0px; top:0px;}
+  25%  { left:10px; top:0px;}
+   100% {  left:0px; top:0px;}
+  100% {  left:0px; top:0px;}
+}

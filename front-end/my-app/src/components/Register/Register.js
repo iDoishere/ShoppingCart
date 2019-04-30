@@ -21,7 +21,6 @@ class Register extends Component {
           <MDBCard>
             <MDBCardBody>
               <form>
-                <p className="h4 text-center py-4">Register</p>
                 <div className="grey-text">
                   <MDBInput
                    ref={this.name}
@@ -64,7 +63,7 @@ class Register extends Component {
                 </div>
                 <div className="text-center py-4 mt-3">
                 <MDBBtn onClick={()=> {
-                  console.log( this.name)
+                
                 let name = this.name.current.state.innerValue;
                 let email =this.email.current.state.innerValue;
                 let pass = this.pass.current.state.innerValue;

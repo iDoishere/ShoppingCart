@@ -4,8 +4,8 @@ import {route} from './route'
  export const LOGIN = "LOGIN";
 export const MODAL = "MODAL";
 export const REGISTER = "REGISTER";
-
-
+export const SHOW_BANNER = "SHOW_BANNER";
+export const UNSHOW_BANNER = "UNSHOW_BANNER";
 
 
    export const register = (obj) => {
@@ -17,14 +17,35 @@ export const REGISTER = "REGISTER";
                'Content-Type': 'application/json'
              }
            }).then(res => res.json())
-           .then(response =>  console.log(response.auth)  )
-           .catch(error => console.error('Error:', error)); 
+           .then(response => {if(response.auth){
+            dispatch({type:SHOW_BANNER,msg:'your are In'})
+          }else{             
+            dispatch({type:SHOW_BANNER,msg :'one or more fields incorrect'}
+            
+           ) } 
+           setTimeout(function(){  
+            dispatch({type:UNSHOW_BANNER})
+
+       }, 3000)
+           
+          
+          })
+         
+       
+         
+      //       dispatch({type:SHOW_BANNER,msg :'one or more fields incorrect'}
+      //      ),
+      //      setTimeout(function(){  
+      //       dispatch({type:UNSHOW_BANNER})
+
+      //  }, 3000) 
+            
+           
      }
    }
    export const modal = () => {
     return {type:MODAL}
-}
-
+   }
   export const loginAuth =  (obj) => {   
 	return  function (dispatch) {
     const auth = `Basic ${ btoa(`${obj.email}:${obj.pass}`)}`;
@@ -36,6 +57,11 @@ export const REGISTER = "REGISTER";
     }).then(res => res.json())
       .then(res =>  {if(res.auth){
         dispatch({type:LOGIN,payload:res.auth})}})      
-      .catch(res => alert('worng detalis')  )
+      .catch(res =>  dispatch({type:SHOW_BANNER,msg :'one or more fields incorrect'}))
+      setTimeout(function(){  
+            dispatch({type:UNSHOW_BANNER})
+
+       }, 4000);
+
     }
  }

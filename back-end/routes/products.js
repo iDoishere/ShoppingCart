@@ -17,12 +17,12 @@ next()
 router.get('/',async function (req,res,next){
   
   const currentProdcuts =  await myService.getAll('products')
-console.log(currentProdcuts)
+ 
   const result = currentProdcuts.map(product => {
     
     const data = fs.readFileSync(product.path, 'utf8');
   
-    return { photoData: data,name:product.name, price:product.price };
+    return { photoData: data,name:product.name, price:product.price,id:product._id };
   });
   res.send(result);
 })

@@ -18,24 +18,30 @@ const {
   open,
   clickedCloseModal,
   clickedRegister ,
-  inOrOut
+  inOrOut,
+  msg
 }=this.props;
 
 
 console.log( this.props.inOrOut)
     return (
       <Router>
-        <Switch>  
-        
+        <Switch>       
             <Route path="/MainApp/" render={(props) => <MainApp {...props} />} />
             <Route render={() => {
               return (
                 this.props.inOrOut ? (<Redirect to="/MainApp/" />) : (
                   <div>
-              <Icons/>
+                        <Icons/>
+              {this.props.ifBanner ?         
+              <Hello msg={msg}/> :''         
+              }  
+           
               <Modal   open={open}    register={clickedRegister} closeModal={clickedCloseModal}/>
-              <Login loginClicked={clickedLogin} openModal={clickedOpenModal}/>        
-                  </div>       
+              <Login loginClicked={clickedLogin} openModal={clickedOpenModal}/> 
+           
+                  </div>   
+   
              ))}} />
 
       </Switch>
@@ -44,11 +50,13 @@ console.log( this.props.inOrOut)
   }
 }
 const mapStateToProps = state => { 
-         console.log(state)
+       console.log(state)
     return {
        
       open:state.modal.show,
-      inOrOut:state.login.isLoggedIn
+      inOrOut:state.login.isLoggedIn,
+      ifBanner:state.login.ifBanner,
+      msg:state.login.msg
     }
 };
 const mapDispatchToProps = dispatch => {

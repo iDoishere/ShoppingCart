@@ -1,5 +1,6 @@
 
 import  * as actionsType    from '../actions'
+import  * as actionsTypeLogout    from '../actions.Logout'
 const initialState = {
     show :false
 }
@@ -15,6 +16,10 @@ function openModal(state=initialState,action){
         return{
            show:answer
         }
+        case actionsTypeLogout.LOG_OUT:
+       return{
+          show:false
+       }
       
     }
     return state;  

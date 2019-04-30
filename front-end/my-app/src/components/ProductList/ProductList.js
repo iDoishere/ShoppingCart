@@ -4,18 +4,20 @@ import Product from '../Product/Product'
 import './ProductList.css'
 
 
- const ProductList = ({ProductList}) => {
- console.log(ProductList)
+ const ProductList = ({productList,pickedCard}) => {
+ 
   return (
     <div className="cards">
     
       {
-          ProductList.map((product,index) => { 
+          productList.map((product,index) => { 
               return <Product 
               key={index}
+              product={product}
+              pickedCard={(event) => pickedCard(event)}
               path={product.photoData}
-              name={product.name}
-              price={product.price}
+              // name={product.name}
+              // price={product.price}
               />
           })
       }

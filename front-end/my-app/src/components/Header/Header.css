@@ -1,15 +1,17 @@
  
   .cartLogo {
+ width: 5%;
+ 
     position: relative;
-    animation-name: b;
-    animation-duration: 18s;
+    animation-name: run;
+    animation-duration: 8s;
     animation-iteration-count: infinite;
   }
  
   /* Standard syntax */
-  @keyframes b {
+  @keyframes run {
     0%   {  left:0px; top:0px;}
-    25%  { left:1200px; top:0px;}
+    25%  { left:500px; top:0px;}
      100% {  left:0px; top:0px;}
     100% {  left:0px; top:0px;}
   }

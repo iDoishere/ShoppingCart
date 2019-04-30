@@ -12,54 +12,32 @@ import './Login.css'
    render() {
        const {
         loginClicked,
-        openModal,
-     
+        openModal,     
        }= this.props;
      return (
-       <div  >
-       
-
-      
- 
- 
        <div className="divLogin">
     <MDBContainer>
       <MDBRow>
         <MDBCol >
           <form>
           <MDBCardHeader className="form-header deep-blue-gradient rounded">
-                <h3 className="my-3">
-                  <MDBIcon icon="lock" /> Login:
+                <h3 className="my3">      
+                  Login:  
                 </h3>
               </MDBCardHeader>       
             <div className="grey-text">
-              <MDBInput
-                 ref={this.email}
-                label="Type your email"
-                icon="envelope"
-                group
-                type="email"
-                validate
-                error="wrong"
-                success="right"
+              <MDBInput    success="right"  error="wrong"    label="Type your email"  icon="envelope"  group    validate   type="email"
+               ref={this.email}    
               />
-              <MDBInput
-                ref={this.pass}
-                label="Type your password"
-                icon="lock"
-                group
-                type="password"
-                validate
-              />
-              
-            </div>
-            
+              <MDBInput  label="Type your password"    icon="lock"    group    type="password"  validate
+                ref={this.pass}     
+              />           
+            </div>     
           </form>      
         </MDBCol>
       </MDBRow> 
           <div className="btns">
-                  <MDBBtn  onClick = {()=> {
-                     console.log(this.email.current.state.innerValue)
+                  <MDBBtn  onClick = {()=> {            
       let email = this.email.current.state.innerValue;
       let pass = this.pass.current.state.innerValue;
       const obj = {email :email,pass:pass}
@@ -72,16 +50,13 @@ import './Login.css'
                 >
                   Sign in
                 </MDBBtn>
- 
-  
-  <a className="button" variant="primary"onClick = {()=> {
-    openModal()
-  }} >  
- 
-    Register
-  </a>
-</div>  
-<div className="row my-3 d-flex justify-content-center">
+       <a className="button" variant="primary"onClick = {()=> {
+        openModal()
+       }} >  
+       Register
+       </a>
+       </div>  
+       {/* <div className="row my-3 d-flex justify-content-center">
                 <MDBBtn
                   type="button"
                   color="white"
@@ -107,10 +82,10 @@ import './Login.css'
                 >
                   <MDBIcon fab icon="google-plus-g" className="blue-text" />
                 </MDBBtn>
-              </div>
+              </div> */}
     </MDBContainer>
        </div>
-       </div>
+       
      )
    }
  }

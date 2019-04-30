@@ -19,7 +19,7 @@ function icons() {
 
     <div>
     <img width="15%" className="express"   src={logoExpress} ></img> 
-    <img  width="15%" className="js" src={logoJs} ></img>    
+    <img  width="10%" className="js" src={logoJs} ></img>    
    </div>
     
 
