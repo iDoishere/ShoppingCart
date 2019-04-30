@@ -70,6 +70,11 @@ class Register extends Component {
                 let rePass =this.rePass.current.state.innerValue;
                 const obj = {name :name,email:email,pass:pass,rePass:rePass}
                 clickedRegister(obj);
+
+               this.name.current.state.innerValue='';
+              this.email.current.state.innerValue='';
+              this.pass.current.state.innerValue='';
+             this.rePass.current.state.innerValue='';
         }}
                   type="button"
                   gradient="blue"

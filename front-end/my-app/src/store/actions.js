@@ -19,33 +19,14 @@ export const UNSHOW_BANNER = "UNSHOW_BANNER";
            }).then(res => res.json())
            .then(response => {if(response.auth){
             dispatch({type:SHOW_BANNER,msg:'your are In'})
-          }else{             
-            dispatch({type:SHOW_BANNER,msg :'one or more fields incorrect'}
-            
-           ) } 
+           }else{             
+            dispatch({type:SHOW_BANNER,msg :'one or more fields incorrect'})}         
            setTimeout(function(){  
             dispatch({type:UNSHOW_BANNER})
-
-       }, 3000)
-           
-          
-          })
-         
-       
-         
-      //       dispatch({type:SHOW_BANNER,msg :'one or more fields incorrect'}
-      //      ),
-      //      setTimeout(function(){  
-      //       dispatch({type:UNSHOW_BANNER})
-
-      //  }, 3000) 
-            
-           
-     }
+             }, 3000)})    
+          }
    }
-   export const modal = () => {
-    return {type:MODAL}
-   }
+ 
   export const loginAuth =  (obj) => {   
 	return  function (dispatch) {
     const auth = `Basic ${ btoa(`${obj.email}:${obj.pass}`)}`;
@@ -60,8 +41,9 @@ export const UNSHOW_BANNER = "UNSHOW_BANNER";
       .catch(res =>  dispatch({type:SHOW_BANNER,msg :'one or more fields incorrect'}))
       setTimeout(function(){  
             dispatch({type:UNSHOW_BANNER})
-
-       }, 4000);
-
+       }, 4500);
     }
+ }
+ export const modal = () => {
+  return {type:MODAL}
  }
