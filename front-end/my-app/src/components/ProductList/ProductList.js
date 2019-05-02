@@ -8,7 +8,7 @@ import './ProductList.css'
  
   return (
     <div className="cards">
-    
+   
       {
           productList.map((product,index) => { 
               return <Product 
@@ -16,8 +16,6 @@ import './ProductList.css'
               product={product}
               pickedCard={(event) => pickedCard(event)}
               path={product.photoData}
-              // name={product.name}
-              // price={product.price}
               />
           })
       }

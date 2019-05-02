@@ -2,10 +2,10 @@
 import {route} from './route'
 
 export const PICK_PRODUCT = "PICK_PRODUCT";
- 
 export const FETCH_IMG = "FETCH_IMG";
-
 export const RMV_PRODUCT = "RMV_PRODUCT";
+export const SEARCH_PRODUCT = "SEARCH_PRODUCT";
+export const SORT = "SORT";
 
 export const fetchProducts = () =>{
    
@@ -22,4 +22,11 @@ export const PickProduct = (product) => {
 export const removeProduct = (data) => {
     console.log(data)
     return {type:RMV_PRODUCT,data}
+}
+
+export const searchProduct = (searchText) => {
+    return {type:SEARCH_PRODUCT,searchText}
+}
+export const sortProducts = (sort) => {
+    return {type:SORT,sort}
 }

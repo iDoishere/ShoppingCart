@@ -21,8 +21,6 @@ router.get('/login',  basicAuth({ authorizer}) , function (req, res, next) {
   res.status(200).send({"auth":true})
 });
 
-
-
  router.post('/', async function(req,res,next){
  const currentObj = req.body;
  const currentUsers =  await myService.getAll('users')
@@ -32,12 +30,10 @@ router.get('/login',  basicAuth({ authorizer}) , function (req, res, next) {
        res.send({"auth":false,type:aaa}) 
        return;   // to avoid res handle eroor
     }
-
     if(!validateEmail(currentObj.email)){
       res.send({"auth":false}) 
       return;
-    }
-    
+    }  
     if(checkUserExits(currentUsers,currentObj)){
       res.send({"auth":false}) 
       return;
@@ -65,7 +61,6 @@ router.get('/login',  basicAuth({ authorizer}) , function (req, res, next) {
 }
 function checkMissingText(currentObj){
   if(currentObj.name === '' ||currentObj.email === '' ||currentObj.pass === '' ||currentObj.rePass === '' ){
-    aaa='checkMissingText'
     return false;
 }
 if(currentObj.pass.length < 8  || currentObj.rePass.length < 8){

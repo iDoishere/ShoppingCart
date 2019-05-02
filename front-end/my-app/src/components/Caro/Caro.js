@@ -10,7 +10,7 @@ console.log(ifRmv)
                products.length === 0 ?
                 '':<CaroselProduct
                 products={products}       
-                removeProduct={(product,event,divTry) => removeProduct(product,event,divTry)}
+                removeProduct={(product) => removeProduct(product)}
                 ifRmv={ifRmv}
               
                 />

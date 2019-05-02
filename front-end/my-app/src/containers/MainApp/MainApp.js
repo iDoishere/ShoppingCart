@@ -32,7 +32,8 @@ import {
       sighOut,
       removeProduct,
       ifRmv,
-      divTry
+      clickedSearch,
+      sortByPrice
     } =this.props;
 
     return (
@@ -44,7 +45,8 @@ import {
            sighOut={sighOut}    
            removeProduct={removeProduct}
            ifRmv={ifRmv}
-         
+           clickedSearch={clickedSearch}
+           sortByPrice={sortByPrice}
          />
      
 
@@ -73,8 +75,11 @@ const mapDispatchToProps = dispatch => {
         pickedCard:(product) => dispatch(TypeactionProduct.PickProduct(product) ),
         sighOut:() => dispatch(TypeactionLogout.logOut()  ),
        
-        removeProduct:(product,event,divTry) => dispatch(TypeactionProduct.removeProduct({value :product,event:event,divTry:divTry}))
-    };
+        removeProduct:(product) => dispatch(TypeactionProduct.removeProduct({value :product})),
+        clickedSearch:(searchText) =>dispatch(TypeactionProduct.searchProduct(searchText)),
+        sortByPrice:(sort) =>dispatch(TypeactionProduct.sortProducts(sort))
+       
+      };
 };
 
 

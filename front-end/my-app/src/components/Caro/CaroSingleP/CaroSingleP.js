@@ -35,9 +35,7 @@ class CaroSingleP extends Component {
         </div>          
       <button className="btn rounded"><span className="text-green"
        onClick={(event)=> {
-      const divTry= this.divTry.current;
-      console.log(divTry)
-      removeProduct(product,event,divTry)
+      removeProduct(product)
       }}>Remove</span></button>   
       </div>     
  

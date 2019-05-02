@@ -20,7 +20,7 @@ class CaroselProduct extends Component {
           <Coverflow className="111"
           width={800}
           height={480}
-          displayQuantityOfSide={2}
+          displayQuantityOfSide={3}
           navigation={false}
           enableHeading={false}
         >
@@ -29,7 +29,7 @@ class CaroselProduct extends Component {
                   return (           
                    <CaroSingleP ifRmv={ifRmv}
                    product={product} index={index}
-                   removeProduct= {(product,event,divTry) =>removeProduct(product,event,divTry)}   
+                   removeProduct= {(product) =>removeProduct(product)}   
                    
                    />
                 )}):''
