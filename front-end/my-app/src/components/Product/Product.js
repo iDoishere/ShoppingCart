@@ -30,7 +30,7 @@ import $ from "jquery";
   </div>
   <figcaption>
     <h2>{product ? product.name : ' '}</h2> 
-    <div className="price">{product ? product.price : ''} </div>
+    <div className="price">{product ? product.price + '$' : ''} </div>
   </figcaption>
 </figure>
  
