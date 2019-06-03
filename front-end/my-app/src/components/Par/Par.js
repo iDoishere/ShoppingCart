@@ -21,7 +21,7 @@ class Par extends Component {
     super(props);
     this.MyStory = React.createRef();
     this.MyStory2 = React.createRef();
-
+   
 
     this.toggle = this.toggle.bind(this);
     this.state = {
@@ -107,7 +107,7 @@ class Par extends Component {
        <SearchProduct sortByPrice={sortByPrice}  clickedSearch={clickedSearch}/>   
       </div>   
           <div ref={(MyStory) => { this.MyStory = MyStory; }}>
-            <ProductList productList={this.props.imagesResult} pickedCard={pickedCard} />
+            <ProductList myStory = {this.MyStory2} productList={this.props.imagesResult} pickedCard={pickedCard} />
           </div>
           <Parallax className="bgimg2" bgImage={image2} strength={500}>
             <div style={{ height: 400 }}>

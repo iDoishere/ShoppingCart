@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody,
 import './Product.css'
 import $ from "jquery";
 
- const Product = ({product,pickedCard}) => {
+ const Product = ({product,pickedCard,myStory}) => {
  
   return (
     <div>
@@ -22,8 +22,8 @@ import $ from "jquery";
     {/* <a   class="add-to-cart">Add to Cart</a> */}
     <div className="item button-hand"  >
     <button className="button" onClick = {(event) => {
-      pickedCard(product)
-    }} >Click Me!
+      pickedCard(product);scrollToContent2(myStory, { offset: 0, align: 'top', duration: 1000 })  
+    }} >Add Me!
       <div className="hands"></div>
     </button>
   </div>
@@ -51,5 +51,7 @@ import $ from "jquery";
     // </Card>
   )
 }
- 
+function scrollToContent2(MyStory2) {
+  MyStory2.scrollIntoView({ behavior: 'smooth' });
+}
 export default Product;

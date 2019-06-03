@@ -63,7 +63,7 @@ import {
 const mapStateToProps = state => {
        console.log(state)
     return {
-       products:state.fetchProduct.products,
+      products:state.fetchProduct.products,
       imagesResult : state.fetchProduct.productsResult,
       ifRmv:state.fetchProduct.ifRmv
     };

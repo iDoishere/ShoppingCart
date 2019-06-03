@@ -10,15 +10,11 @@ import { Button,Modal,Form } from 'react-bootstrap';
     <div >
       {/* <h2>{msg} </h2> */}
       <Modal className="heartbeat" show={true}   >
-          <Modal.Header className="msgHeader">
-        
+          <Modal.Header className="msgHeader">      
           </Modal.Header>
-
           <Modal.Title  className={status}> {msg}</Modal.Title>
           <Modal.Body>
-    </Modal.Body>
- 
-          
+          </Modal.Body>        
         </Modal>
     </div>
   )

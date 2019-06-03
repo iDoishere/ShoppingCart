@@ -23,24 +23,22 @@ const {
 }=this.props;
 
 
-console.log( this.props.inOrOut)
+ 
     return (
       <Router>
         <Switch>       
             <Route path="/MainApp/" render={(props) => <MainApp {...props} />} />
             <Route render={() => {
               return (
-                this.props.inOrOut ? (<Redirect to="/MainApp/" />) : (
+                inOrOut ? (<Redirect to="/MainApp/" />) : (
                   <div>
-                        <Icons/>
+              <Icons/>
               {this.props.ifBanner ?         
-              <Hello msg={msg}/> :''         
-              }  
-           
+              <Hello msg={msg}/> : ''         
+              }         
               <Modal   open={open}    register={clickedRegister} closeModal={clickedCloseModal}/>
-              <Login loginClicked={clickedLogin} openModal={clickedOpenModal}/> 
-           
-                  </div>   
+              <Login loginClicked={clickedLogin} openModal={clickedOpenModal}/>        
+               </div>   
    
              ))}} />
 

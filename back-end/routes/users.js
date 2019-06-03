@@ -41,7 +41,7 @@ router.get('/login',  basicAuth({ authorizer}) , function (req, res, next) {
     else{
       currentObj.pass = md5(currentObj.pass);
       currentObj.rePass = md5(currentObj.rePass);
-    //  const result = await myService.insertOne(currentObj, 'users')
+      const result = await myService.insertOne(currentObj, 'users')
       res.send({"auth":true}) 
       return;
     }

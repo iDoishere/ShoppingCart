@@ -4,8 +4,8 @@ import Product from '../Product/Product'
 import './ProductList.css'
 
 
- const ProductList = ({productList,pickedCard}) => {
- 
+ const ProductList = ({productList,pickedCard,myStory}) => {
+ console.log(myStory)
   return (
     <div className="cards">
    
@@ -16,6 +16,7 @@ import './ProductList.css'
               product={product}
               pickedCard={(event) => pickedCard(event)}
               path={product.photoData}
+              myStory={myStory}
               />
           })
       }
