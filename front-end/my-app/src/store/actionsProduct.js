@@ -20,7 +20,7 @@ export const PickProduct = (product) => {
        return {type:PICK_PRODUCT,product:product}
 }
 export const removeProduct = (data) => {
-    console.log(data)
+   
     return {type:RMV_PRODUCT,data}
 }
 

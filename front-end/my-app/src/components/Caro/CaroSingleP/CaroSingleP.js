@@ -3,7 +3,9 @@
 import React, { Component } from 'react'
 import './CaroSingleP.css'
 class CaroSingleP extends Component {
+  
   divTry = React.createRef();
+
   render() {
     const {
       removeProduct,
@@ -14,12 +16,11 @@ class CaroSingleP extends Component {
 
     const status =  ifRmv ? 'slideoutbckcenter': 'nothing'
  
-    return (
+   return (
   
       <div ref={this.divTry}   key={index}   
            role="menuitem"
-           tabIndex="0"
-           
+           tabIndex="0"          
        >  
        <img 
       src={product.photoData}
@@ -31,23 +32,19 @@ class CaroSingleP extends Component {
       <h6>{product.name}</h6>
       </div>
       <div className="price">
-      <h6>{product.price}</h6>  
+      <h6>{product.price + '$'}</h6>
+      <span>{product.num}</span>  
         </div>          
       <button className="btn rounded"><span className="text-green"
        onClick={(event)=> {
       removeProduct(product)
       }}>Remove</span></button>   
-      </div>     
- 
-       
+      </div>         
    </div>   
  
     )
   }
 }
-
-
-
 export default CaroSingleP;
 
 

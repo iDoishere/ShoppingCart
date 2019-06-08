@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import * as TypeactionProduct from '../../store/actionsProduct'
 import * as TypeactionLogout from '../../store/actions.Logout'
- 
 import ProdcutList from '../../components/ProductList/ProductList'
 import { connect } from 'react-redux'
-
 import Par from '../../components/Par/Par'
- import Login from '../../components/Login/Login'
+import Login from '../../components/Login/Login'
 import { ParallaxProvider } from 'react-scroll-parallax';
 import {
   BrowserRouter as Router,
@@ -17,7 +15,6 @@ import {
 } from "react-router-dom";
 
  class MainApp extends Component {
-
 
     async componentDidMount  (){
         this.props.fetchProducts(); 
@@ -38,8 +35,6 @@ import {
 
     return (
       <div>
-         {/* <Header /> */}
-
          <ParallaxProvider>
          <Par imagesResult={imagesResult}   pickedCard={pickedCard} products={products}
            sighOut={sighOut}    
@@ -48,17 +43,12 @@ import {
            clickedSearch={clickedSearch}
            sortByPrice={sortByPrice}
          />
-     
-
-          <Route path="/Login" component={Login} />
+          {/* <Route path="/Login" component={Login} /> */}
           </ParallaxProvider>
-       
-        {/* <ProdcutList  ProductList={imagesResult}   /> */}
       </div>
     )
   }
 }
-
 
 const mapStateToProps = state => {
        console.log(state)
@@ -81,9 +71,4 @@ const mapDispatchToProps = dispatch => {
        
       };
 };
-
-
-
-
- 
 export default connect(mapStateToProps, mapDispatchToProps)(MainApp);

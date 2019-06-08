@@ -2,7 +2,15 @@
 /* Icon set - http://ionicons.com */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
- 
+
+
+.productImg:hover {
+  transition: all 0.5s ease;
+  transform: scale(1.28);
+  
+  }
+
+
 .snip1268 {
  
   transition: all 0.6s ease;

@@ -5,7 +5,7 @@
     font-family: Arial;
     font-weight: bold;
     padding: 0 0 5px 0;
-    color: #eb5055;
+    color: #60a3bc;
    
   }
   
@@ -17,7 +17,7 @@
     left: 0;
     bottom: 0;
     visibility: hidden;
-    background-color: #eb5055;
+    background-color: #000;
     -webkit-transition: all 0.1s ease;
     transition: all 0.3s ease;
     -webkit-transform: scaleX(0);
