@@ -18,7 +18,7 @@ const ProductList = ({productList,pickedCard,myStory}) => {
               />
           })
       }
-        <span className="cart"> </span>
+       
     </div>
   )
 }

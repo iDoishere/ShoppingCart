@@ -1,6 +1,7 @@
 
 
 import React, { Component } from 'react'
+import { Button,Card } from 'react-bootstrap';
 import './CaroSingleP.css'
 class CaroSingleP extends Component {
   
@@ -17,12 +18,26 @@ class CaroSingleP extends Component {
     const status =  ifRmv ? 'slideoutbckcenter': 'nothing'
  
    return (
-  
-      <div ref={this.divTry}   key={index}   
+      <div className="bbb">
+
+     
+      <div ref={this.divTry} className="vd"   key={index}   
            role="menuitem"
            tabIndex="0"          
        >  
-       <img 
+    <Card   >
+     <Card.Img  style={{ width: '13rem'  }} src={product.photoData}   />
+     <Card.Body>
+    <Card.Title>{product.name}</Card.Title>
+    <Card.Title>{product.price + '$'}</Card.Title>
+    <Card.Title>{  'Amount:'  + product.num}</Card.Title>
+   
+    <Button variant="primary"  onClick={(event)=> {
+      removeProduct(product)
+      }}>Remove</Button>
+  </Card.Body>
+</Card>
+       {/* <img 
       src={product.photoData}
       alt='title or description'
       style={{    width: '80%' }}
@@ -39,8 +54,10 @@ class CaroSingleP extends Component {
        onClick={(event)=> {
       removeProduct(product)
       }}>Remove</span></button>   
-      </div>         
+      </div>          */}
    </div>   
+
+   </div>
  
     )
   }

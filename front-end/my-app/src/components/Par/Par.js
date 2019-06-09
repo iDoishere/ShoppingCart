@@ -19,6 +19,7 @@ import {
   Nav,
   NavItem
 } from 'reactstrap';
+import Footer from '../Footer/Footer';
 class Par extends Component {
   constructor(props) {
     super(props);
@@ -178,6 +179,7 @@ class Par extends Component {
             <Caro ifRmv={ifRmv} products={products} removeProduct={removeProduct} />
           </div>
         </div>
+        <Footer/>
       </div>
     )
   }

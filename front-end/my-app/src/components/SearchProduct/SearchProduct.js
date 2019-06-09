@@ -56,21 +56,17 @@ class SearchProduct extends Component {
         sortByPrice
       } = this.props;
     return (
-      <div >
-          
+            
      <div className="SearchDiv">
-     <div>
+  
      <Plx
-        className='Phone'
+     
         parallaxData={ AnimationTexth2 }
       >
          <h2  className="searchTitle">Search Your Item</h2>
-      </Plx>
-   
-      </div>
-
+      </Plx>  
+    
       <div>
-
       <Plx
         className='Phone'
         parallaxData={ AnimationText }
@@ -81,13 +77,11 @@ class SearchProduct extends Component {
         onChange = {() => clickedSearch(this.input.current.value)}
         ref = {this.input}
          /> 
-      </Plx>
-    
+      </Plx>  
       </div>
       <div className="sort">
       <FormGroup>
           <Label className="searchTitle">Sort By</Label>
-
           <CustomInput onChange={() =>sortByPrice()} type="select" id="exampleCustomSelect" name="customSelect">
           <option> </option> 
          <option> Price</option>
@@ -98,7 +92,7 @@ class SearchProduct extends Component {
  
   
  
-      </div>
+      
     )
   }
 }

@@ -9,7 +9,7 @@ import $ from "jquery";
 const Product = ({ product, pickedCard, myStory }) => {
 
   return (
-    <div>
+    <div className="cardsAnimation">
 
       <figure className="snip1268">
         <div className="helper">
